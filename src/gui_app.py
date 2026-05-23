@@ -2,8 +2,8 @@ import tkinter as tk
 from tkinter import messagebox
 import pandas as pd
 
-from src.data_loader import IrisDataLoader
-from src.model_handler import IrisModel
+from data_loader import IrisDataLoader
+from model_handler import IrisModel
 
 
 class IrisApp:
@@ -12,7 +12,7 @@ class IrisApp:
         self.root.title("Iris Flower Classifier")
         self.root.geometry("400x300")
 
-        # Load data and train model once when the app starts
+        
         loader = IrisDataLoader("data/data.csv")
         loader.load_data()
         X_train, X_test, y_train, y_test = loader.split_data()
@@ -20,11 +20,11 @@ class IrisApp:
         self.model = IrisModel()
         self.model.train(X_train, y_train)
 
-        # Title
+        
         title = tk.Label(root, text="Iris Flower Classifier", font=("Arial", 16, "bold"))
         title.pack(pady=10)
 
-        # Input fields
+        
         self.entries = {}
 
         fields = [
@@ -49,7 +49,7 @@ class IrisApp:
         button = tk.Button(root, text="Predict Species", command=self.predict_species)
         button.pack(pady=15)
 
-        # Result label
+        
         self.result_label = tk.Label(root, text="", font=("Arial", 12, "bold"))
         self.result_label.pack(pady=10)
 
@@ -60,7 +60,7 @@ class IrisApp:
             petal_length = float(self.entries["Petal Length"].get())
             petal_width = float(self.entries["Petal Width"].get())
 
-            # Create one row of input data
+            
             input_data = pd.DataFrame([[
                 sepal_length,
                 sepal_width,

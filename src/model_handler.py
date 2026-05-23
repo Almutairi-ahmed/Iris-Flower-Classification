@@ -8,7 +8,6 @@ class IrisModel:
         self.is_trained = False
 
     def train(self, X_train, y_train):
-        # fit method is used to train the model
         self.model.fit(X_train, y_train)
         self.is_trained = True
 
