@@ -14,3 +14,5 @@ plots/
 *.jpeg
 *.gif
 *.pdf
+.venv/
+.vscode/
